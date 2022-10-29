@@ -16,6 +16,6 @@ app.use(categorys)
 app.use(productRouter)
 app.use(sbcategory)
 
-app.listen(2011,(req,res)=>{
+app.listen(process.env.PORT || 2011,(req,res)=>{
     console.log("server start");
 });
