@@ -2,7 +2,6 @@ import multer from "multer";
 import path from "path";
 
 
-
 const imageStorage = multer.diskStorage({
     // Destination to store image     
     destination: 'images', 

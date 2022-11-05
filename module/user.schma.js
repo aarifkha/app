@@ -21,8 +21,18 @@ const schmas = new mongoose.Schema({
         type:String,
         required:false
     },
+    number_verfiy:{
+        type:Boolean,
+        required:false,
+        default:false
+    },
+    otp:{
+        type:Number,
+        required:false,
+        default:false
+    }
  
 })
 
- const user = mongoose.model("users",schmas);
+ const user = mongoose.model("useer",schmas);
 export default user;

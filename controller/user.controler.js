@@ -108,6 +108,12 @@ export const updat = async (req, res) => {
                 msg: "data update successfully",
                 data: crea
             })
+        }else{
+            res.send({
+                status: false,
+                msg: "user not avalibale",
+                data: crea
+            })
         }
     } catch (error) {
         res.send({
@@ -136,3 +142,28 @@ export const updat = async (req, res) => {
 //         })
 //     }
 // }
+
+
+
+export const resendotp = async (req,res)=>{
+    try {
+        var otp = 1234
+        req.body.otp = otp
+        const data = await user.findByIdAndUpdate({_id:req.body.id},req.body)
+        if(data){
+            res.send({
+                status:true,
+                msg:"otp send successfully",
+                data:data
+
+            })
+        }else{
+            res.send({
+                status:flse,
+                msg:"fdgjkfdfdjhjddkkdhfdjhdfdhjdfdgdfkfdfdf"
+            })
+        }
+    } catch (error) {
+        res.send(error)
+    }
+}
