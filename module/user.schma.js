@@ -28,11 +28,10 @@ const schmas = new mongoose.Schema({
     },
     otp:{
         type:Number,
-        required:false,
-        default:false
+        required:false
     }
  
 })
 
- const user = mongoose.model("useer",schmas);
+ const user = mongoose.model("user",schmas);
 export default user;

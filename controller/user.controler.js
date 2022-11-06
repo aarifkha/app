@@ -124,31 +124,32 @@ export const updat = async (req, res) => {
     }
 }
 
-// export const delets = async (req, res) => {
-//     try {
-//         const del = await user.findByIdAndDelete({ email: req.body.email })
-//         if (del) {
-//             res.send({
-//                 status: true,
-//                 msg: "successfully delet",
-//                 data: del
-//             })
-//         }
-//     } catch (error) {
-//         es.send({
-//             status: true,
-//             msg: "data not found ",
-//             data:{}
-//         })
-//     }
-// }
+export const desss = async (req, res) => {
+    try {
+        const del = await user.findByIdAndDelete({ email: req.body.email },req.body)
+        if (del) {
+            res.send({
+                status: true,
+                msg: "successfully delet",
+                data: del
+            })
+        }
+    } catch (error) {
+        res.send({
+            status: false,
+            msg: "data not found ",
+            data:{}
+        })
+    }
+}
 
 
 
 export const resendotp = async (req,res)=>{
     try {
-        var otp = 1234
-        req.body.otp = otp
+        var val = Math.floor(1000 + Math.random() * 9000);
+        console.log(val);
+        req.body.otp = val
         const data = await user.findByIdAndUpdate({_id:req.body.id},req.body)
         if(data){
             res.send({
@@ -159,8 +160,8 @@ export const resendotp = async (req,res)=>{
             })
         }else{
             res.send({
-                status:flse,
-                msg:"fdgjkfdfdjhjddkkdhfdjhdfdhjdfdgdfkfdfdf"
+                status:false,
+                msg:"something wrong"
             })
         }
     } catch (error) {
